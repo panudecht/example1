@@ -1,4 +1,4 @@
-
+import 'package:example_app1/screen/my_second_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -11,8 +11,22 @@ class MyHomePage extends StatelessWidget {
         child: Text("My drawer"),
       ),
       appBar: AppBar(title: const Text("My Home Page")),
-      body: const Center(
-        child: Text("Hello world", style: TextStyle(fontSize: 30, color: Color.fromARGB(255, 18, 132, 188)),),
+      body: Center(
+        child: Column(
+          children: [ 
+            const Text("Hello World"),
+            ElevatedButton(
+              onPressed: () { 
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MySecondPage(),
+                  ),
+                );
+              },
+              child: const Text("Goto Page2"),
+            )
+          ],
+        )
       ),
     );
   }
